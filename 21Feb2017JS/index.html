@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // var dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        // var now = new Date();
+        // var theDay = now.getDay();
+        // var nameOfToday = dayNames[theDay];
+        // alert(nameOfToday);
+        var mySalaries = [22000, 23000, 44000, 55000];
+        var overallTax = 0;
+        for (var i = 0; i < mySalaries.length; i++) {
+            overallTax += myTax(mySalaries[i]);
+        }
+
+        alert("Overall Tax is: " + overallTax);
+
+
+        function myTax(sal) {
+            var myTax = 0;
+            if (sal > 10000 && sal < 15000) {
+                myTax = sal * 0.045;
+            } else if (sal >= 15000) {
+                myTax = sal * 0.06;
+            } else {
+                myTax = sal * 0.01;
+            }
+            return myTax;
+        }
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
