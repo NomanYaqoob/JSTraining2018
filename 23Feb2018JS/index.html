@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script>
+    var sum = 90;
+    function addValue(val) {
+        sum += val;
+        console.log("15: " + sum);
+    }
+    // addValue(20);
+    // console.log("18: " + sum);
+
+    function hypo(base, perpend) {
+        function square(value) {
+            return Math.pow(value, 2);
+        }
+        return Math.sqrt(square(base) + square(perpend));
+    }
+
+
+    // Q.7 Factorial
+    function factorial(value) {
+        if (value === 0) {
+            console.log("Fire Exit");
+            return 1;
+        }
+        console.log("value: " + value);
+        return factorial(value - 1) * value;
+    }
+
+    console.log(factorial(12));
+
+    // Q.9 ??
+    // Q10:
+    function argsLength(base, per, ...args) {
+        console.log("Args Length" + args.length + args);
+    }
+
+    function sort(arr) {
+        var best = 0;
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1]
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    var param = function inner(value) {
+        return value + 2;
+    }
+    alert(param(9099));
+
+
+
+
+
+</script>
+
+<body>
+
+</body>
+
+</html>
