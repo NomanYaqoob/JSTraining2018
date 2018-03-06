@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form action="javascript:void(0)" onSubmit="submitFunc(this)">
+        ZIP:
+        <input type="text" onblur="fillCity(this)"> CITY:
+        <input type="text" id='city'>
+        <input type="submit" value="Submit">
+    </form>
+
+    <input type="button" value="Click" onMouseOver="value='Click Me!!!'" onMouseOut="value='Stop Clicking'">
+</body>
+
+<script>
+    function callMe(mI) {
+        mI.value = 'Click Me!!!!!';
+    }
+
+
+    function submitFunc(form) {
+        console.log(form)
+
+    }
+
+    function fillCity(zip) {
+        console.log('kuch hwa  ?');
+        zip = zip.value;
+        var city = document.getElementById('city');
+        if (zip === '12345') {
+            city.value = 'Karachi';
+        } else if (zip === '99999') {
+            city.value = 'Islamabad';
+        }
+    }
+</script>
+
+</html>

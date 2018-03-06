@@ -32,3 +32,40 @@ function isArmstrong() {
         alert("Not Armstrong number");
     }
 }
+
+var myVar = 1;
+
+
+function a() {
+
+
+    var myVar = 3;
+    myVar = 2;
+    b()
+}
+
+function b() {
+    console.log(myVar);
+}
+
+a();
+
+
+function calc(num1, num2, operator) {
+    var result = 0;
+    switch (operator) {
+        case '+':
+            result = num1 + num2;
+            break;
+        case '-':
+            result = num1 - num2;
+            break;
+        case '/':
+            result = num1 / num2;
+            break;
+        default:
+            result = num1 * num2;
+            break;
+    }
+    console.log(result);
+}
