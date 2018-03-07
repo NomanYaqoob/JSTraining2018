@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .hide {
+            display: none;
+        }
+
+        .size {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <p id='myPara'>Lorem ipsum dolor sit amet consectetur
+        <a href="#" onclick="expand('myPara')">View More</a>
+    </p> -->
+
+
+    <a onclick="hidePic()">hide picture below</a>
+    <br>
+    <img src="sample.jpg" class="size" alt="">
+    <hr>
+    <img src="sample.jpg" id='sample' class="size" onmouseover="swap('sample')" alt="">
+
+
+    <p>This is paragraph 1</p>
+    <p>This is paragraph 2</p>
+    <p>This is paragraph 3</p>
+    <a href="#" onclick="getAllParas()">Get All Paras</a>
+</body>
+<script>
+
+    function getAllParas(){
+        var par = document.getElementsByTagName('p');
+        console.log(par);
+    }
+
+    function expand(id) {
+        var myParagraph = document.getElementById(id)
+        var myExpandedText = `<ul>
+        <li>Para item 1</li>
+        <li>Para item 2</li>
+        <li>Para item 3</li>
+        </ul>
+`;
+        myParagraph.innerHTML = myExpandedText;
+
+    }
+
+    function hidePic() {
+        var myImages = document.getElementsByTagName('img');
+        var img = myImages[0];
+        img.className += ' hide';
+    }
+
+    function swap(id) {
+        var img = document.getElementById(id);
+        img.src = 'apple.jpg';
+        img.className = 'size';
+    }
+</script>
+
+</html>
