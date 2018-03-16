@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id='list'>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <select name="" id="select">
+        <option value="F">Female</option>
+        <option value="M">Male</option>
+    </select>
+</body>
+<script>
+
+    var select = document.getElementById('select')
+    var options = select.children;
+
+    options[0].setAttribute('class', 'hide');
+
+    var newOption = document.createElement('option');
+    newOption.setAttribute('value', 'U');
+    newOption.innerText = "Unknown";
+    var refElement = select.firstElementChild;
+    select.insertBefore(newOption, refElement);
+
+
+    setTimeout(function () {
+        select.removeChild(newOption);
+    }, 5000);
+    // select.appendChild(newOption);
+
+</script>
+
+</html>
