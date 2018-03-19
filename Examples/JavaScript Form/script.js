@@ -1,3 +1,9 @@
+/** 
+ * This code is just a sample of what approch we can follow to create form
+ * Note: We are using arrays since I have not conducted class on Object till this example
+ * Bootstrap Forms : https://getbootstrap.com/docs/4.0/components/forms/
+*/
+
 
 var form;
 var lineBreakElement = document.createElement('br');
@@ -32,4 +38,4 @@ function generateInputs() {
 
 generateform();
 generateInputs();
-document.body.appendChild(form);
+document.getElementsByClassName('container')[0].appendChild(form);
