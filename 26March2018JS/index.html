@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    var x, y, z;
+    // var a = {};
+
+    var threeDObj = {
+        x: 0,
+        y: 0,
+        z: 0
+    };
+
+    threeDObj.x = 88989;
+    var b = threeDObj.y;
+
+    x = parseInt(prompt("X"))
+    y = parseInt(prompt("Y"))
+    z = parseInt(prompt("Z"))
+
+    var plan1 = {
+        name: "Basic",
+        price: 3.99,
+        space: 100,
+        transfer: 1000,
+        pages: 10,
+        discountMonths: [6, 7],
+    };
+
+    var plan2 = {
+        name: "International",
+        price: 6.99,
+        space: 1200,
+        transfer: 2000,
+        pages: 30,
+        discountMonths: [2, 7],
+    };
+
+    var calcAnnual = function (percentIfDisc) {
+        console.log(this);
+        var bestPrice = this.price;
+        var currDate = new Date();
+        var thisMo = currDate.getMonth();
+        for (var i = 0; i < this.discountMonths.length; i++) {
+            if (this.discountMonths[i] === thisMo) {
+                bestPrice = this.price * percentIfDisc;
+                break;
+            }
+        }
+        return bestPrice * 12;
+    }
+</script>
+
+</html>
