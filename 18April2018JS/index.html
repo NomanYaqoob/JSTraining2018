@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // function one(callback) {
+    //     setTimeout(function () {
+    //         console.log('one');
+    //         callback();
+    //     }, 3000);
+    // }
+
+    // function two() {
+    //     console.log('two')
+    // }
+
+    // function three() {
+    //     console.log('three')
+    // }
+    // one(two);
+    // one(three);
+
+    function executePromise() {
+        var myAsynctask = new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                reject('cannot resolved')
+            }, 3000);
+
+            // if (/*any thing success*/) {
+            //     resolve();
+            // } else if (/*any thing success*/) {
+            //     if (a) {
+            //         resolve()
+            //     } else {
+            //         reject()
+            //     }
+            // }
+        });
+
+        // myAsynctask.then(function (response) {
+        //     console.log(response);
+        // }).catch(function (err) {
+        //     console.log('err', err);
+        // })
+
+        myAsynctask.then(function (response) {
+            console.log(response);
+        }, function (err) {
+            console.log('err', err);
+        })
+    }
+
+
+    function getPosts() {
+        return fetch('https://jsonplaceholder.typicode.com/posts/1');
+    }
+
+    // var myPosts = getPosts();
+    // myPosts
+    //     .then(function (response) {
+    //         return response.json();
+    //     })
+    //     .then(function (res) {
+    //         console.log(res);
+    //     })
+    //     .catch(function (err) {
+    //         console.log(err)
+    //     });
+
+    var urls = ['https://jsonplaceholder.typicode.com/posts/1'
+        , 'https://jsonplaceholder.typicode.com/posts/1/comments'
+        , 'https://jsonplaceholder.typicode.com/posts/1/albums']
+
+    var urlsFetched = urls.map(function (url) {
+        return fetch(url);
+    })
+
+    // Promise.all(urlsFetched)
+    //     .then(function (responses) {
+    //         console.log(responses);
+    //         return Promise.all(responses.map(function (res) {
+    //             return res.json();
+    //         })
+    //         );
+    //     })
+    //     .then(function (responses) {
+    //         console.log(responses)
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     })
+
+
+    Promise.race(urlsFetched)
+        .then(function (responses) {
+            console.log(responses);
+            return responses.json();
+        })
+        .then(function (responses) {
+            console.log(responses)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+
+</script>
+
+</html>

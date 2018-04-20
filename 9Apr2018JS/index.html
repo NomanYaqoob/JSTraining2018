@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form onSubmit="return checkForSelection();">
+        <select id="states">
+            <option value="" selected="selected">
+                SELECT A STATE</option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+        </select>&nbsp;&nbsp;
+        <input type="submit" value="Submit Form">
+    </form>
+</body>
+<script>
+    function checkForSelection() {
+        if (document.getElementById("states").selectedIndex === 0) {
+            alert("Please select a state.");
+            return false;
+        }
+    }
+</script>
+
+</html>
