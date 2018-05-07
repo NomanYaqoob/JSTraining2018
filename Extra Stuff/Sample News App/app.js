@@ -3,6 +3,15 @@ const newsArticles = document.querySelector("main");
 const newsCategory = document.querySelector("#selectCategory");
 const defaultSource = 'techcrunch';
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', ev => {
+    navigator.serviceWorker.register('sw.js')
+      .then(res => console.log('registered!!!'))
+      .catch(err => console.log(err));
+  })
+}
+
+
 newsCategory.addEventListener('change', (event) => {
   updateNews(event.target.value);
 })
