@@ -1,5 +1,5 @@
 const staticAssets = [
-  './index.html',
+  './',
   './app.js',
   './style.css'
 ];
@@ -24,12 +24,27 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (ev) => {
   console.log('Fetch from Service Worker ', ev);
   const req = ev.request;
-  return ev.respondWith(cacheFirst(req));
+  const url = new URL(req.url);
+  if (url.origin === location.origin) {
+    ev.respondWith(cacheFirst(req));
+  }
+  return ev.respondWith(networkFirst(req));
 });
 
-function cacheFirst(req) {
-  return caches.match(req)
-    .then(res => res)
-    .catch(() => fetch(req));
+async function cacheFirst(req) {
+  let cacheRes = await caches.match(req);
+  return cacheRes || fetch(req);
+}
+
+async function networkFirst(req) {
+  const dynamicCache = await caches.open('v1-dynamic');
+  try {
+    const networkResponse = await fetch(req);
+    dynamicCache.put(req, networkResponse.clone());
+    return networkResponse;
+  } catch (err) {
+    const cacheResponse = await caches.match(req);
+    return cacheResponse;
+  }
 }
 
